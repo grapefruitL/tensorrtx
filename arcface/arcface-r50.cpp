@@ -400,6 +400,23 @@ int main(int argc, char** argv) {
     end = std::chrono::system_clock::now();
     std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
 
+    //---------------------------
+    start = std::chrono::system_clock::now();
+    doInference(*context, data, prob, BATCH_SIZE);
+    end = std::chrono::system_clock::now();
+    std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+
+    start = std::chrono::system_clock::now();
+    doInference(*context, data, prob, BATCH_SIZE);
+    end = std::chrono::system_clock::now();
+    std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+
+    start = std::chrono::system_clock::now();
+    doInference(*context, data, prob, BATCH_SIZE);
+    end = std::chrono::system_clock::now();
+    std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+    //---------------------------
+
     cv::Mat out1(1, 512, CV_32FC1, prob);
     cv::Mat out_norm1;
     cv::normalize(out1, out_norm1);
